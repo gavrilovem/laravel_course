@@ -23,7 +23,6 @@ class NewsModel extends Model
 
     public function getNewsWithCategoryId(int $id) {
         return DB::table('news')
-            ->join('categories', 'news.category_id', '=', 'categories.id')
             ->where('category_id', '=', $id)
             ->get();
     }
