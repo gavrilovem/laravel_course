@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class NewsModel extends Model
+class News extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title', 'description', 'text', 'category_id', 'is_private'
+    ];
 
     public function getNewsCollection () {
         return DB::table('news')

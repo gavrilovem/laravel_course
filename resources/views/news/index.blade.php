@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <h2 class="card-title">{{ $news->title }}</h2>
                     <p class="card-text">{{ $news->description }}</p>
-                    <a href="{{ route('news/show', ['id' => $news->id]) }}" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="{{ route('news.show', ['id' => $news->id]) }}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                     Posted on January 1, 2020 by

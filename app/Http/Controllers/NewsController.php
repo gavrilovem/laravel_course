@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NewsModel;
+use App\Models\News;
 use Illuminate\Http\Request;
-use App\Services\CategoriesService;
 
 class NewsController extends Controller
 {
-    public function index() {
-        $newsModel = new NewsModel;
+    public function index(News $newsModel) {
         $newsCollection = $newsModel->getNewsCollection();
         return view('news/index', [
             'newsCollection' => $newsCollection
         ]);
     }
 
-    public function show(int $id) {
-        $newsModel = new NewsModel;
+    public function show(News $newsModel, int $id) {
         $news = $newsModel->getNews($id) ?? ['title' => '404 news not found'];
         return view('news/show', ['news' => $news]);
     }
 
-    public function showCategory(int $id) {
-        $newsModel = new NewsModel;
+    public function showByCategory(News $newsModel, int $id) {
         $foundNews = $newsModel->getNewsWithCategoryId($id);
         return view('news/index', [
             'newsCollection' => $foundNews
